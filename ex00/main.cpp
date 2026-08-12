@@ -5,8 +5,8 @@
 
 int main()  
 {
-    std::vector<Entity> roster;
-    roster.push_back(Entity{7, "orc", 30});
+    std::vector<Entity> roster; 
+    roster.push_back(Entity{7, "orc", 30}); 
     roster.push_back(Entity{2, "bat", 8});
     roster.push_back(Entity{42, "boss", 300});
     roster.push_back(Entity{13, "rat", 4});
@@ -28,18 +28,3 @@ int main()
         }
     }
 }
-//{7, "orc", 30}, {2, "bat", 8}, {42, "boss", 300}, {13, "rat", 4}
-
-/*
-$ ./roster
--- roster --
-7 orc (hp 30)
-2 bat (hp 8)
-42 boss (hp 300)
-13 rat (hp 4)
--- survivors --
-7 orc (hp 30)
-2 bat (hp 8)
-42 boss (hp 300)
-
-*/

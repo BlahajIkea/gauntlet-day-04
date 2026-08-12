@@ -1,15 +1,45 @@
 #include <iostream>
 #include "entity.hpp"
+#include <string>
+#include <vector>
 
-struct Entity { int id; std::string name; int hp; };
-
-int main() 
+int main()  
 {
- 
+    std::vector<Entity> roster;
+    roster.push_back(Entity{7, "orc", 30});
+    roster.push_back(Entity{2, "bat", 8});
+    roster.push_back(Entity{42, "boss", 300});
+    roster.push_back(Entity{13, "rat", 4});
+
+    std::cout << "-- roster -- "  << std::endl;
+    for (auto i = roster.begin(); i != roster.end(); ) {
+        std::cout << i->id << " " << i->name << " (hp " << i->hp << ")" << std::endl;
+        i++;
+    }
     
-
-
-    // seed:
-    {7, "orc", 30}, {2, "bat", 8}, {42, "boss", 300}, {13, "rat", 4}
-
+    std::cout << "-- survivors -- "  << std::endl; // Adds survior splitter
+    
+    for (auto j = roster.begin(); j != roster.end(); ) {
+        if (j->hp <= 5) 
+            roster.erase(j);
+        else {
+            std::cout << j->id << " " << j->name << " (hp " << j->hp << ")" << std::endl;
+            j++;
+        }
+    }
 }
+//{7, "orc", 30}, {2, "bat", 8}, {42, "boss", 300}, {13, "rat", 4}
+
+/*
+$ ./roster
+-- roster --
+7 orc (hp 30)
+2 bat (hp 8)
+42 boss (hp 300)
+13 rat (hp 4)
+-- survivors --
+7 orc (hp 30)
+2 bat (hp 8)
+42 boss (hp 300)
+
+*/
